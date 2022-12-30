@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <center>
+    <h2>AGE CONVERT IS DAYS</h2>
+    <input type="number" id="inp" style="width: 300px; padding: 10px;" placeholder="Enter age">
+<br>
+  <button onclick="btn()" style="margin-top: 10px; padding: 5px;">Show in days age</button>
+
+  <p id="para"></p>
+  </center>
+  <body>
+    <script>
+    //   var age = 22;
+
+     var myage;
+
+      var agedays;
+      function btn() {
+        var age = +document.getElementById("inp").value;
+        var paraa = document.getElementById("para");
+
+        if(age == ''){
+            alert("Please Enter Age")
+        }
+        else{
+            myage = age*365.24;
+
+
+        paraa.innerHTML=`AGE CONVERT IS DAYS:  ${myage}` 
+
+        }
+
+        
+      
+      }
+    </script>
+  </body>
+</html>

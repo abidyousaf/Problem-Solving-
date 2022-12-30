@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <h2>N-Sided</h2>
+      <input
+        type="number"
+        id="input"
+        placeholder="Enter number "
+        style="width: 300px; padding: 10px"
+      /><br />
+      <button onclick="btn()" style="margin-top: 10px; padding: 5px">
+        Show Answer</button
+      ><br />
+      <div style="margin-top: 10px; padding: 5px">
+        <label for="">Your Answer: </label>
+        <input type="text" id="inpu2" style="width: 300px; padding: 10px" />
+      </div>
+    </center>
+    <script>
+      sum = 0;
+      function btn() {
+        var num = document.getElementById("input").value;
+        var answer1 = document.getElementById("inpu2");
+
+        if (num == "") {
+          alert("PLease Enter Number");
+        } else {
+          sum = (num - 2) * 180;
+
+          answer1.value = sum;
+        }
+      }
+    </script>
+  </body>
+</html>

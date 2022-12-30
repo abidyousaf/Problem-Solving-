@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Matrices Multiplication</title>
+	</head>
+	<body>
+		<center>
+            <table>
+                <tr>
+                    <td> <label>Enter rows for 1st Matrix</label></td>
+                    <td><input type="number" id="row1" /></td>
+                </tr>
+                <tr>
+                    <td><label>Enter columns for 1st Matrix</label></td>
+                    <td><input type="number" id="col1" /></td>
+                </tr>
+                <tr>
+                    <td><label>Enter rows for 2nd Matrix</label></td>
+                    <td><input type="number" id="row2" /></td>
+                </tr>
+                <tr>
+                    <td><label>Enter columns for 2nd Matrix</label></td>
+                    <td><input type="number" id="col2" /></td>
+                </tr>
+            </table>
+		<button onclick="matrixMultuiplication()">CHECK MATRIX</button
+		><br /><br />
+
+		<label>Matrix 1 Data</label>
+		<input type="number" id="matrix1data" />
+		<button onclick="mat1data()" id="matrix1btn">MATRIX1</button>
+		<button onclick="displayMatrix1()">DISPLAYMatrix1</button>
+		<p id="matrix1"></p>
+		<br /><br />
+
+		<label>Matrix 2 Data</label>
+		<input type="number" id="matrix2data" />
+		<button onclick="matdata()" id="matrix2btn">MATRIX2</button>
+		<button onclick="displayMatrix2()">DISPLAYMatrix2</button>
+		<p id="matrix2"></p>
+		<br /><br />
+		<button onclick="multiplyMartix()">MULTIPLYMATRIX</button><br /><br />
+		<div id="result"></div>
+        </center>
+		<script>
+			var check = false;
+			var count = 0,
+				checkValueMartix1 = 0,
+				checkValueMatrix2 = 0;
+			var matrix1arr = new Array();
+			var matrix2arr = new Array();
+			function matrixMultuiplication() {
+				var row1 = document.getElementById("row1").value;
+				var col1 = document.getElementById("col1").value;
+				var row2 = document.getElementById("row2").value;
+				var col2 = document.getElementById("col2").value;
+				if (col1 == row2) {
+					check = true;
+					alert("Matrix order created");
+				} else {
+					alert("Matrix multiplication is not possible on given matrix order");
+					check = false;
+				}
+			}
+			function mat1data() {
+				var matrix1data = document.getElementById("matrix1data").value;
+				matrix1arr.push(matrix1data);
+				console.log(matrix1arr);
+				checkValueMartix1++;
+				if (row1.value * col1.value == checkValueMartix1) {
+					document.getElementById("matrix1btn").disabled = true;
+				}
+			}
+			function matdata() {
+				var matrix2data = document.getElementById("matrix2data").value;
+				matrix2arr.push(matrix2data);
+				console.log(matrix2arr);
+				checkValueMatrix2++;
+				if (row2.value * col2.value == checkValueMatrix2) {
+					document.getElementById("matrix2btn").disabled = true;
+				}
+			}
+			function displayMatrix1() {
+				var matrix1 = document.getElementById("matrix1");
+				matrix1.innerHTML = "";
+
+				for (var i = 0; i < row1.value; i++) {
+					for (var j = 0; j < col1.value; j++) {
+						matrix1.innerHTML += matrix1arr[count] + " ";
+						console.log(matrix1arr[count]);
+						count++;
+					}
+					matrix1.innerHTML += "<br>";
+				}
+				count = 0;
+			}
+			function displayMatrix2() {
+				var matrix2 = document.getElementById("matrix2");
+				matrix2.innerHTML = "";
+				for (var i = 0; i < row2.value; i++) {
+					for (var j = 0; j < col2.value; j++) {
+						matrix2.innerHTML += matrix2arr[count] + " ";
+						console.log(matrix1arr[j]);
+						count++;
+					}
+					matrix2.innerHTML += "<br>";
+				}
+				count = 0;
+			}
+			function multiplyMartix() {
+				const newArr1 = [];
+				while (matrix1arr.length) newArr1.push(matrix1arr.splice(0, col1.value));
+				console.log(newArr1);
+				const newArr2 = [];
+				while (matrix2arr.length) newArr2.push(matrix2arr.splice(0, col2.value));
+				console.log(newArr2);
+
+				var result = [];
+				for (var i = 0; i < newArr1.length; i++) {
+					result[i] = [];
+					console.log(newArr2[0].length);
+					for (var j = 0; j < newArr2[0].length; j++) {
+						var sum = 0;
+						for (var k = 0; k < newArr1[0].length; k++) {
+							sum += newArr1[i][k] * newArr2[k][j];
+						}
+						result[i][j] = sum;
+					}
+				}
+				console.log(result);
+
+				var res = document.getElementById("result");
+				res.innerHTML = "";
+				for (var i = 0; i < result[i].length; i++) {
+					for (var z = 0; z < result.length; z++) {
+						res.innerHTML += result[z][i] + " ";
+					}
+					res.innerHTML += "<br>";
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+//Regular function 
+//In regular function you always have to return any value.
+// Inside of a regular JavaScript function, this value (aka the execution context) is dynamic.
+
+// The dynamic context means that the value of this depends on how the function is invoked. In JavaScript, there are 4 ways you can invoke a regular function.
+
+// During a simple invocation the value of this equals to the global object (or undefined if the function runs in strict mode):
+ function btn(){
+
+}
+
+btn();
+function MyFunction() {
+  console.log(this);
+}
+new MyFunction();
+
+
+// arrow function
+
+// arrow function 
+//ReadAble code 
+//Arrow function you can skip return keyword and write in a single line
+var btn1 = () =>{
+
+}
+btn1();
+const increment = (num) => num + 1;
+increment(41);
+
+    </script>
+</body>
+</html>

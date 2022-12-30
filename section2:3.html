@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<center>
+<h2>Decimal Values</h2>
+		<input type="number" id="num" placeholder="Enter Number" style="width: 300px; padding: 10px;"/><br /><br>
+		<input type="number" id="deci" placeholder="decimal values" style="width: 200px; padding: 10px;"/><br /><br>
+		<button onclick="btn()">Show Answer</button><br />
+        <label for="">Your Answer</label>
+		<input type="text"  id="para" style="margin-top: 10px;"/>
+        </center>
+		<script>
+			function btn() {
+				let number1 = +document.getElementById("num").value;
+				let decim = +document.getElementById("deci").value;
+				let ans = document.getElementById("para");
+
+				if(number1 == '' || decim == ''){
+					alert("PLease enter the value")
+				}
+				else{
+					let num = "";
+				num = (number1 - Math.floor(number1)).toString();
+				let decimal = "";
+				for (let i = 0; i < decim + 2; i++) {
+					decimal += num[i];
+				}
+				number1 = Math.floor(number1) + parseFloat(decimal);
+                ans.value=number1;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

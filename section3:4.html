@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<center>
+
+   <h2>DATE OF BIRTH</h2>
+   <input type="number"  id="days" placeholder="enter days"style="width: 300px; padding: 10px;"/><br><br>
+<input type="number" id="month" placeholder="enter month"style="width: 300px; padding: 10px;"/><br><br>
+<input type="number" id="year" placeholder="enter month"style="width: 300px; padding: 10px;"/><br>
+
+<div style="margin-top: 10px;">
+   <button onclick="btn()" style="padding: 10px;"> show age</button>
+
+<p id="para" style="color: blue;"></p>
+</div>
+</center>
+   <script>
+        var date = new Date();
+     function btn(){
+      var par = document.getElementById("para");
+      var days1 = document.getElementById("days").value;
+      var Months1 = document.getElementById("month").value;
+      var Years1 = document.getElementById("year").value;
+
+      if(days1 == ''  || Months1 == '' || Years1 == ''){
+         alert("Please Enter Date Of Birth")
+      }
+   else
+   {
+      var day = date.getDate()-(days1);
+      var month = date.getMonth()-(Months1);
+      var year = date.getFullYear()-(Years1);
+      par.innerHTML = `<span style="color:red;">YOUR DAYS: </span> ${day} <span style="color:red;"> YOUR MONTH:</span>  ${month}<span style="color:red;">  YOUR YEAR:</span>  ${year}`;
+   }
+     }
+
+    
+   </script>
+</body>
+</html>
